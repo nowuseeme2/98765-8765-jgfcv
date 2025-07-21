@@ -1,0 +1,14 @@
+step "deploy-a-release" {
+    name = "Deploy a Release"
+
+    action {
+        action_type = "Octopus.DeployRelease"
+        is_required = true
+        properties = {
+            Octopus.Action.DeployRelease.DeploymentCondition = "Always"
+            Octopus.Action.DeployRelease.ProjectId = "work"
+        }
+        worker_pool = "hosted-windows"
+        worker_pool_variable = ""
+    }
+}
